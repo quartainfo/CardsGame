@@ -32,7 +32,8 @@ public class Carta : IComparable<Carta>
 
   public int CompareTo(Carta? other)
   {
-    throw new NotImplementedException();
+    if (other == null) return 1;
+    return this.ValoreNumerico.CompareTo(other.ValoreNumerico);
   }
 
   /// <summary>
