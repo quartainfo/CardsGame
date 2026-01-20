@@ -32,7 +32,14 @@ public class Carta : IComparable<Carta>
 
   public int CompareTo(Carta? other)
   {
-    throw new NotImplementedException();
+    if (other == null) return 1;
+
+    // Prima confronta per valore numerico
+    int valoreCompare = ValoreNumerico.CompareTo(other.ValoreNumerico);
+    if (valoreCompare != 0) return valoreCompare;
+
+    // Se i valori sono uguali, confronta per seme
+    return Seme.CompareTo(other.Seme);
   }
 
   /// <summary>
