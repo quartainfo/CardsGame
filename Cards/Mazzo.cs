@@ -4,6 +4,7 @@ public class Mazzo
 {
 
   private List<Carta> carte = new List<Carta>();
+  private Random random = new Random();
 
   public Mazzo()
   {
@@ -20,7 +21,18 @@ public class Mazzo
 
   public void Mescola()
   {
+    for (int i = carte.Count - 1; i > 0; i--)
+    {
+      int randomIndex = random.Next(i + 1);
+      (carte[i], carte[randomIndex]) = (carte[randomIndex], carte[i]);
+    }
+  }
 
+  public Mano Distribuisci()
+  {
+    List<Carta> cinque = carte.TakeLast(5).ToList();
+    carte.RemoveRange(carte.Count - 5, 5);
+    return new Mano(cinque);
   }
 
 }
