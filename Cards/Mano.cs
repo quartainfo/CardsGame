@@ -5,7 +5,7 @@ public class Mano : IComparable<Mano>
   private List<Carta> carte;
 
   public Mano(List<Carta> carte)
-  {
+  { //c è il criterio di ordinamento
     this.carte = carte.OrderByDescending(c => c.Valore).ToList();
   }
 
@@ -20,7 +20,7 @@ public class Mano : IComparable<Mano>
   }
 
   public bool IsPoker()
-  {
+  { //g rappresenta ogni singolo gruppo
     var grouped = carte.GroupBy(c => c.Valore).ToList();
     return grouped.Any(g => g.Count() == 4);
   }
@@ -51,7 +51,10 @@ public class Mano : IComparable<Mano>
     
     return false;
   }
-
+/// <summary>
+/// Verifica se la mano è un tris (tre carte dello stesso valore).
+/// </summary>
+/// <returns></returns>
   public bool IsTris()
   {
     var grouped = carte.GroupBy(c => c.Valore).ToList();
