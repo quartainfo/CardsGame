@@ -55,3 +55,18 @@ public class ManoTests
     Assert.True(mano.IsScalaColore());
 
   }
+
+  [Fact]
+  public void IsTris_ManoConTris_RitornaTrue()
+  {
+    var carte = new List<Carta>
+    {
+      new Carta(Seme.Cuori, 'K'),
+      new Carta(Seme.Picche, 'K'),
+      new Carta(Seme.Fiori, 'K'),
+      new Carta(Seme.Denari, '9'),
+      new Carta(Seme.Cuori, '2')
+    };
+    var mano = new Mano(carte);
+    Assert.True(mano.IsTris());
+  }
