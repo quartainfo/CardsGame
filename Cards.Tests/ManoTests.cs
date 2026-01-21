@@ -53,5 +53,5 @@ public class ManoTests
   };
     var mano = new Mano(carte);
     Assert.True(mano.IsScalaColore());
-
   }
+}
