@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Cards.Tests/Cards.Tests.csproj" />
   <Project Path="Cards/Cards.csproj" />
 </Solution>
