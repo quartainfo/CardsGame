@@ -44,14 +44,14 @@ public class ManoTests
   public void IsScalaColore_ManoConScalaColore_RitornaTrue(char v1, char v2, char v3, char v4, char v5)
   {
     var carte = new List<Carta>
-  {
-    new Carta(Seme.Picche, v1),
-    new Carta(Seme.Picche, v2),
-    new Carta(Seme.Picche, v3),
-    new Carta(Seme.Picche, v4),
-    new Carta(Seme.Picche, v5)
-  };
+    {
+      new Carta(Seme.Picche, v1),
+      new Carta(Seme.Picche, v2),
+      new Carta(Seme.Picche, v3),
+      new Carta(Seme.Picche, v4),
+      new Carta(Seme.Picche, v5)
+    };
     var mano = new Mano(carte);
     Assert.True(mano.IsScalaColore());
-
   }
+}
