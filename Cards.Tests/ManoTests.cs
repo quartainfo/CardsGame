@@ -7,6 +7,33 @@ namespace Cards.Tests;
 public class ManoTests
 {
 
+  public static IEnumerable<object[]> IsPoker_TestData()
+  {
+    return [
+      [
+        new Carta(Seme.Cuori, '9'),
+        new Carta(Seme.Quadri, '9'),
+        new Carta(Seme.Fiori, '9'),
+        new Carta(Seme.Picche, '9'),
+        new Carta(Seme.Cuori, 'K')
+      ],
+      [
+        new Carta(Seme.Cuori, 'A'),
+        new Carta(Seme.Quadri, 'A'),
+        new Carta(Seme.Fiori, 'A'),
+        new Carta(Seme.Picche, 'A'),
+        new Carta(Seme.Cuori, '2')
+      ]];
+  }
+
+  [MemberData(nameof(IsPoker_TestData))]
+  [Theory]
+  public void IsPoker_ManoConPoker_RitornaTrue(List<Carta> carte)
+  {
+    var mano = new Mano(carte);
+    Assert.True(mano.IsPoker());
+  }
+
   [Fact]
   public void IsScalaReale_ManoConScalaReale_RitornaTrue()
   {
@@ -55,3 +82,4 @@ public class ManoTests
     Assert.True(mano.IsScalaColore());
 
   }
+}
